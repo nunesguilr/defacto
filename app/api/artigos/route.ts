@@ -2,6 +2,7 @@ import { auth } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { slugify, estimateReadTime } from '@/lib/utils'
 import { NextRequest } from 'next/server'
+import { sendNewArticleNotification } from '@/lib/email'
 
 export async function POST(request: NextRequest) {
   const session = await auth()
@@ -64,6 +65,12 @@ export async function POST(request: NextRequest) {
         },
       },
     })
+
+    if (article.status === 'PUBLISHED') {
+      sendNewArticleNotification(article.id).catch(err => 
+        console.error('Failed to send email notification:', err)
+      );
+    }
 
     return Response.json(article, { status: 201 })
   } catch (error) {

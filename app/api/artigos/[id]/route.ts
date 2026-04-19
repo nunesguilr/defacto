@@ -2,6 +2,7 @@ import { auth } from '@/lib/auth'
 import { prisma } from '@/lib/prisma'
 import { slugify, estimateReadTime } from '@/lib/utils'
 import { NextRequest } from 'next/server'
+import { sendNewArticleNotification } from '@/lib/email'
 
 type Ctx = { params: Promise<{ id: string }> }
 
@@ -59,6 +60,12 @@ export async function PATCH(request: NextRequest, { params }: Ctx) {
         },
       },
     })
+
+    if (wasPublished) {
+      sendNewArticleNotification(article.id).catch(err => 
+        console.error('Failed to send email notification:', err)
+      );
+    }
 
     return Response.json(article)
   } catch (error) {
