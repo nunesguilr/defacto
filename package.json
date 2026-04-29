@@ -1,59 +1,31 @@
 {
-  "name": "defacto",
-  "version": "0.1.0",
-  "private": true,
+  "name": "editorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "db:migrate": "prisma migrate dev",
-    "db:seed": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' prisma/seed.ts",
-    "db:reset": "prisma migrate reset --force && npm run db:seed"
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "start": "npm run build && npx serve _site",
+    "deploy": "git push origin editorial"
   },
-  "dependencies": {
-    "@libsql/client": "^0.17.2",
-    "@prisma/adapter-libsql": "^7.7.0",
-    "@prisma/client": "^6.19.3",
-    "@react-email/body": "^0.3.0",
-    "@react-email/components": "^1.0.12",
-    "@react-email/container": "^0.0.16",
-    "@react-email/head": "^0.0.13",
-    "@react-email/heading": "^0.0.16",
-    "@react-email/hr": "^0.0.12",
-    "@react-email/html": "^0.0.12",
-    "@react-email/img": "^0.0.12",
-    "@react-email/link": "^0.0.13",
-    "@react-email/section": "^0.0.17",
-    "@react-email/text": "^0.1.6",
-    "@tiptap/extension-character-count": "^3.22.3",
-    "@tiptap/extension-image": "^3.22.3",
-    "@tiptap/extension-link": "^3.22.3",
-    "@tiptap/extension-placeholder": "^3.22.3",
-    "@tiptap/extension-typography": "^3.22.3",
-    "@tiptap/react": "^3.22.3",
-    "@tiptap/starter-kit": "^3.22.3",
-    "bcryptjs": "^3.0.3",
-    "lucide-react": "^1.8.0",
-    "next": "16.2.3",
-    "next-auth": "^5.0.0-beta.30",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "resend": "^6.10.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nunesguilr/defacto.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nunesguilr/defacto/issues"
+  },
+  "homepage": "https://github.com/nunesguilr/defacto#readme",
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "dotenv": "^16.4.5",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.3",
-    "prisma": "^6.19.3",
-    "ts-node": "^10.9.2",
-    "typescript": "^5"
-  },
-  "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    "@11ty/eleventy": "^3.1.5",
+    "fuse.js": "^7.3.0",
+    "markdown-it": "^14.1.1",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-footnote": "^4.0.0"
   }
 }

@@ -1,0 +1,19 @@
+<div class="pdf-card">
+  <div class="pdf-card-content">
+    <span class="pdf-collection">{{ pdf.collection }}</span>
+    <h3 class="pdf-title">{{ pdf.title }}</h3>
+    <p class="pdf-author">{{ pdf.author }} ({{ pdf.year }})</p>
+    {% if pdf.translator %}
+      <p class="pdf-translator">Trad. {{ pdf.translator }}</p>
+    {% endif %}
+    <p class="pdf-description">{{ pdf.description }}</p>
+    <div class="pdf-meta">
+      <span>{{ pdf.pages }} páginas</span>
+      <span>&bull;</span>
+      <span>{{ pdf.license }}</span>
+    </div>
+  </div>
+  <div class="pdf-card-actions">
+    <a href="{{ pdf.file }}" class="btn btn-primary" download>Baixar PDF</a>
+  </div>
+</div>

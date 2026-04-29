@@ -1,0 +1,24 @@
+---
+layout: page.njk
+title: Contato
+---
+<p>Preencha o formulário abaixo para entrar em contato com a equipe da Editora Yamnaya.</p>
+
+<form action="https://formspree.io/f/example" method="POST" class="contact-form" style="max-width: 500px; margin-top: var(--space-md);">
+  <div style="margin-bottom: var(--space-sm);">
+    <label for="name" style="display: block; margin-bottom: 0.5rem;">Nome:</label>
+    <input type="text" id="name" name="name" required style="width: 100%; padding: 0.5rem; border: 1px solid var(--c-border); background: var(--c-bg); color: var(--c-primary); font-family: var(--font-serif-body);">
+  </div>
+  
+  <div style="margin-bottom: var(--space-sm);">
+    <label for="email" style="display: block; margin-bottom: 0.5rem;">E-mail:</label>
+    <input type="email" id="email" name="_replyto" required style="width: 100%; padding: 0.5rem; border: 1px solid var(--c-border); background: var(--c-bg); color: var(--c-primary); font-family: var(--font-serif-body);">
+  </div>
+  
+  <div style="margin-bottom: var(--space-md);">
+    <label for="message" style="display: block; margin-bottom: 0.5rem;">Mensagem:</label>
+    <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 0.5rem; border: 1px solid var(--c-border); background: var(--c-bg); color: var(--c-primary); font-family: var(--font-serif-body);"></textarea>
+  </div>
+  
+  <button type="submit" class="btn">Enviar Mensagem</button>
+</form>

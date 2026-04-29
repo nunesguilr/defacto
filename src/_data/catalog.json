@@ -1,0 +1,28 @@
+[
+  {
+    "id": "hayek-caminho-servidao",
+    "title": "O Caminho da Servidão",
+    "author": "F. A. Hayek",
+    "year": 1944,
+    "translator": "",
+    "file": "/pdf/hayek.pdf",
+    "cover": "",
+    "pages": 256,
+    "license": "Domínio Público",
+    "collection": "Clássicos da Liberdade",
+    "description": "Uma análise profunda sobre os perigos do planejamento centralizado."
+  },
+  {
+    "id": "mises-acao-humana",
+    "title": "Ação Humana",
+    "author": "Ludwig von Mises",
+    "year": 1949,
+    "translator": "",
+    "file": "/pdf/mises.pdf",
+    "cover": "",
+    "pages": 900,
+    "license": "Domínio Público",
+    "collection": "Tratados de Economia",
+    "description": "O tratado compreensivo sobre economia e praxeologia."
+  }
+]

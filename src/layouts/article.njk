@@ -1,0 +1,52 @@
+---
+layout: base.njk
+---
+<article class="article-content container">
+  <header class="article-header">
+    <div class="article-meta">
+      <time datetime="{{ date | dateIso }}">{{ date | dateReadable }}</time>
+      {% if tags %}
+      <span class="tags">
+        {% for tag in tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </div>
+    <h1 class="article-title">{{ title }}</h1>
+    
+    {% if author %}
+    <div class="article-author-info">
+      <span>Por <strong>{{ author }}</strong></span>
+    </div>
+    {% endif %}
+    
+    {% if excerpt %}
+    <p class="article-excerpt">{{ excerpt }}</p>
+    {% endif %}
+  </header>
+  
+  <div class="content flow">
+    {{ content | safe }}
+  </div>
+  
+  <footer class="article-footer">
+    <hr class="separator">
+    
+    {% if author %}
+      {% set authorData = authors[author | lower | replace(' ', '_')] %}
+      {% if authorData %}
+      <div class="author-box">
+        <h3>Sobre o autor</h3>
+        <p><strong>{{ authorData.name }}</strong>: {{ authorData.bio }}</p>
+      </div>
+      {% endif %}
+    {% endif %}
+    
+    {% if pdf %}
+    <div class="article-pdf-link">
+      <a href="{{ pdf }}" class="btn btn-outline" download>Baixar Artigo em PDF</a>
+    </div>
+    {% endif %}
+  </footer>
+</article>

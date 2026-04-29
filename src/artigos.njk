@@ -1,0 +1,32 @@
+---
+layout: page.njk
+title: Artigos
+---
+<div class="flow">
+  <p>Explore nossa coleção de artigos, resenhas e ensaios.</p>
+  
+  <div class="articles-list">
+    {% for post in collections.article | reverse %}
+      <article class="post-preview" style="margin-bottom: var(--space-md);">
+        <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        <p class="article-meta">
+          {{ post.date | dateReadable }}
+          {% if post.data.author %} &bull; {{ post.data.author }}{% endif %}
+        </p>
+        {% if post.data.tags %}
+          <div class="tags" style="margin-left: 0; margin-bottom: var(--space-xs);">
+            {% for tag in post.data.tags %}
+              {% if tag != "article" %}
+                <span class="tag">{{ tag }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if post.data.excerpt %}
+          <p>{{ post.data.excerpt }}</p>
+        {% endif %}
+      </article>
+      {% if not loop.last %}<hr class="separator" style="margin: var(--space-md) 0;">{% endif %}
+    {% endfor %}
+  </div>
+</div>
