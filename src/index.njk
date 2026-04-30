@@ -3,49 +3,58 @@ layout: base.njk
 title: Início
 ---
 <div class="container flow">
-  <section class="hero" style="text-align: center; margin: var(--space-xl) 0;">
-    <h1 style="font-size: 3rem; margin-bottom: var(--space-xs);">{{ site.title }}</h1>
-    <p style="font-size: 1.2rem; color: var(--c-secondary); font-style: italic;">{{ site.description }}</p>
+  <section class="hero-objectivist">
+    <h1 class="hero-title">{{ site.title }}</h1>
+    <p class="hero-subtitle">{{ site.description }}</p>
+    <div class="hero-actions">
+      <a href="/artigos/" class="btn btn-primary">Ler Artigos</a>
+      <a href="/recomendacoes/" class="btn btn-outline">Ver Recomendações</a>
+    </div>
   </section>
 
   <hr class="separator">
 
   <section class="recent-articles">
-    <h2>Artigos Recentes</h2>
-    <div class="flow">
+    <div class="section-header">
+      <h2>Formulações Recentes</h2>
+      <a href="/artigos/" class="link-more">Ver todas as formulações &rarr;</a>
+    </div>
+    <div class="grid-articles">
       {% set count = 0 %}
       {% for post in collections.article | reverse %}
         {% if count < 3 %}
-          <article class="post-preview">
-            <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
-            <p class="article-meta">
-              {{ post.date | dateReadable }} 
-              {% if post.data.author %} &bull; {{ post.data.author }}{% endif %}
-            </p>
-            {% if post.data.excerpt %}
-              <p>{{ post.data.excerpt }}</p>
-            {% endif %}
+          <article class="card-dynamic">
+            <div style="flex-grow: 1;">
+              <h3 style="margin-top: 0;"><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+              <p class="article-meta" style="font-family: var(--font-mono); font-size: 0.8em; margin-bottom: 1rem;">
+                {{ post.date | dateReadable }} 
+                {% if post.data.author %} <span class="accent-color">|</span> {{ post.data.author }}{% endif %}
+              </p>
+              {% if post.data.excerpt %}
+                <p style="font-size: 0.95rem; color: var(--c-secondary);">{{ post.data.excerpt }}</p>
+              {% endif %}
+            </div>
+            <div style="margin-top: 1rem; border-top: 1px solid var(--c-border); padding-top: 0.5rem;">
+              <a href="{{ post.url }}" style="font-family: var(--font-serif-display); font-size: 0.85rem; text-transform: uppercase;">Ler Artigo &rarr;</a>
+            </div>
           </article>
           {% set count = count + 1 %}
         {% endif %}
       {% endfor %}
-    </div>
-    <div style="margin-top: var(--space-md);">
-      <a href="/artigos/" class="btn btn-outline">Ver todos os artigos &rarr;</a>
     </div>
   </section>
 
   <hr class="separator">
 
   <section class="featured-pdfs">
-    <h2>Catálogo em Destaque</h2>
+    <div class="section-header">
+      <h2>Recomendações e Acervo</h2>
+      <a href="/recomendacoes/" class="link-more">Acessar acervo completo &rarr;</a>
+    </div>
     <div class="pdf-grid">
-      {% for pdf in catalog.slice(0, 2) %}
+      {% for pdf in catalog.slice(0, 3) %}
         {% include "pdf-card.njk" %}
       {% endfor %}
-    </div>
-    <div style="margin-top: var(--space-md); text-align: center;">
-      <a href="/catalogo/" class="btn btn-outline">Acessar catálogo completo &rarr;</a>
     </div>
   </section>
 </div>

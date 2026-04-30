@@ -64,12 +64,17 @@ document.addEventListener('DOMContentLoaded', () => {
           const html = results.map(result => {
             const item = result.item;
             return `
-              <article class="post-preview" style="margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--c-border);">
-                <h3 style="margin-bottom: 0.2rem;"><a href="${item.url}">${item.title}</a></h3>
-                <p class="article-meta" style="font-size: 0.9em; color: var(--c-secondary); margin-bottom: 0.5rem;">
-                  ${item.date} ${item.author ? `&bull; ${item.author}` : ''}
-                </p>
-                ${item.excerpt ? `<p style="font-size: 0.95em;">${item.excerpt}</p>` : ''}
+              <article class="card-dynamic">
+                <div style="flex-grow: 1;">
+                  <h3 style="margin-top: 0; margin-bottom: 0.2rem;"><a href="${item.url}">${item.title}</a></h3>
+                  <p class="article-meta" style="font-family: var(--font-mono); font-size: 0.8em; margin-bottom: 1rem;">
+                    ${item.date} ${item.author ? `<span class="accent-color">|</span> ${item.author}` : ''}
+                  </p>
+                  ${item.excerpt ? `<p style="font-size: 0.95em; color: var(--c-secondary);">${item.excerpt}</p>` : ''}
+                </div>
+                <div style="margin-top: 1rem; border-top: 1px solid var(--c-border); padding-top: 0.5rem;">
+                  <a href="${item.url}" style="font-family: var(--font-serif-display); font-size: 0.85rem; text-transform: uppercase;">Ler Artigo &rarr;</a>
+                </div>
               </article>
             `;
           }).join('');
@@ -80,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(err => console.error('Error loading search index:', err));
   }
 
-  // PDF Catalog Filtering
+  // Recommendations Filtering
   const pdfGrid = document.getElementById('pdf-grid');
   if (pdfGrid) {
     const params = new URLSearchParams(window.location.search);

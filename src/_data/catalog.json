@@ -24,5 +24,31 @@
     "license": "Domínio Público",
     "collection": "Tratados de Economia",
     "description": "O tratado compreensivo sobre economia e praxeologia."
+  },
+  {
+    "id": "rand-virtude-egoismo",
+    "title": "A Virtude do Egoísmo",
+    "author": "Ayn Rand",
+    "year": 1964,
+    "translator": "",
+    "file": "#",
+    "cover": "",
+    "pages": 170,
+    "license": "Recomendação Externa",
+    "collection": "Clássicos da Liberdade",
+    "description": "Uma defesa robusta do egoísmo racional como a única ética compatível com a vida humana."
+  },
+  {
+    "id": "menger-principios",
+    "title": "Princípios de Economia Política",
+    "author": "Carl Menger",
+    "year": 1871,
+    "translator": "",
+    "file": "#",
+    "cover": "",
+    "pages": 320,
+    "license": "Recomendação Externa",
+    "collection": "Tratados de Economia",
+    "description": "A obra fundadora da Escola Austríaca de Economia e da revolução marginalista."
   }
 ]

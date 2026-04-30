@@ -1,0 +1,20 @@
+---
+layout: page.njk
+title: Recomendações e Acervo
+---
+<div class="flow">
+  <p style="font-size: 1.2rem; margin-bottom: var(--space-md);">Uma curadoria rigorosa de obras, artigos e autores recomendados pelo Instituto Yamnaya.</p>
+  
+  <div class="filter-bar">
+    <strong class="filter-label">Filtros de Acervo:</strong>
+    <a href="?colecao=Clássicos da Liberdade" class="btn btn-outline btn-sm">Clássicos da Liberdade</a>
+    <a href="?colecao=Tratados de Economia" class="btn btn-outline btn-sm">Tratados de Economia</a>
+    <a href="/recomendacoes/" class="btn btn-ghost btn-sm">Limpar</a>
+  </div>
+
+  <div class="pdf-grid" id="pdf-grid">
+    {% for pdf in catalog %}
+      {% include "pdf-card.njk" %}
+    {% endfor %}
+  </div>
+</div>
