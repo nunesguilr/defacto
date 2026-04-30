@@ -1,0 +1,15 @@
+---
+layout: page.njk
+title: Busca de Artigos
+---
+<div class="search-container flow">
+  <p>Digite abaixo o título, autor ou assunto que você procura.</p>
+  
+  <div class="search-box" style="margin-top: var(--space-md); margin-bottom: var(--space-xl);">
+    <input type="text" id="search-input" placeholder="Pesquisar artigos..." style="width: 100%; max-width: 600px; padding: 0.8rem; font-size: 1.1rem; font-family: var(--font-serif-body); border: 1px solid var(--c-border); background: var(--c-bg); color: var(--c-primary); border-radius: 4px;">
+  </div>
+
+  <div id="search-results" class="flow">
+    <!-- Resultados serão injetados aqui via JS -->
+  </div>
+</div>

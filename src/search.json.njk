@@ -1,0 +1,15 @@
+---
+permalink: /search.json
+layout: null
+---
+[
+  {%- for post in collections.article %}
+  {
+    "title": {{ post.data.title | dump | safe }},
+    "url": "{{ post.url | url }}",
+    "author": {{ (post.data.author or "") | dump | safe }},
+    "excerpt": {{ (post.data.excerpt or "") | dump | safe }},
+    "date": "{{ post.date | dateReadable }}"
+  }{% if not loop.last %},{% endif %}
+  {%- endfor %}
+]
